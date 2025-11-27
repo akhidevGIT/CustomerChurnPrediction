@@ -6,5 +6,10 @@ matplotlib
 seaborn
 feature_engine
 flask
-
--e .
+dill
+xgboost
+imblearn
+uvicorn
+fastapi
+streamlit
+shap

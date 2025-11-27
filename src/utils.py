@@ -12,6 +12,19 @@ from sklearn.metrics import accuracy_score, classification_report
 from src.logger import logging
 from src.exception import CustomException
 
+
+import os
+
+def get_artifacts_path() -> str:
+    """
+    Returns the artifacts folder path.
+    - Training: uses local ./artifacts
+    - Inference: uses ARTIFACTS_PATH env variable inside Docker
+    """
+    return os.getenv("ARTIFACTS_PATH", "artifacts")
+
+
+
 def save_object(file_path, obj):
     try:
         dir_path = os.path.dirname(file_path)
@@ -62,6 +75,3 @@ def evaluate_model(X_train, X_test, y_train, y_test, models, params):
         raise CustomException(e, sys)
     
 
-if __name__ == "__main__":
-    model = load_object(os.path.join("artifacts","model.pkl"))
-    print(model)
