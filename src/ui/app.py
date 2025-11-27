@@ -48,7 +48,7 @@ if uploaded_file is not None:
     # Predict
     st.subheader("Prediction Results")
 
-    preds_response = requests.post(url= API_URL + "predict_batch", json=df.to_dict(orient="records"))
+    preds_response = requests.post(url= API_URL + "/predict_batch", json=df.to_dict(orient="records"))
     probas = np.array(preds_response.json()["churn_probabilities"])
 
     labels = (probas >= threshold).astype(int)
@@ -70,7 +70,7 @@ if uploaded_file is not None:
         step = 1
     )
 
-    shap_response = requests.post(url=API_URL+"shap_values", json=df.to_dict(orient="records"))
+    shap_response = requests.post(url=API_URL+"/shap_values", json=df.to_dict(orient="records"))
     shap_values = shap_response.json()['shap_values']
     expected_value = shap_response.json()['expected_value']
     feature_names = shap_response.json()['feature_names']
