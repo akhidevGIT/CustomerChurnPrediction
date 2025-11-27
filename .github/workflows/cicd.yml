@@ -29,6 +29,7 @@ jobs:
 
       - name: Run training pipeline
         run: |
+          set PYTHONPATH=%cd%
           python src/Pipelines/train_pipeline.py
 
       - name: Upload artifacts
