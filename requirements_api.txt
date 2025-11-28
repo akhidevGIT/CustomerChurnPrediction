@@ -1,11 +1,9 @@
-ipykernel
 pandas
 numpy
 scikit-learn
 matplotlib
 seaborn
 feature_engine
-flask
 dill
 xgboost
 imblearn
