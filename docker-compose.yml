@@ -2,25 +2,24 @@ version: "3.9"
 
 services:
   backend:
-    container_name: churn-backend
-    build:
-      context: .
-      dockerfile: docker/backend.Dockerfile
-    image: churn-backend:latest
+    #container_name: churn-backend
+    #build:
+    #  context: .
+    #  dockerfile: docker/backend.Dockerfile
+    image: akhiladev24/churn-backend:latest
     restart: always
     ports:
       - "8000:8000"
-    volumes:
-      - ./artifacts:/app/artifacts   # backend loads model from here
+ 
     environment:
       - ARTIFACTS_PATH=/app/artifacts
 
   frontend:
-    container_name: churn-frontend
-    build:
-      context: .
-      dockerfile: docker/frontend.Dockerfile
-    image: churn-frontend:latest
+    #container_name: churn-frontend
+    #build:
+    #  context: .
+    #  dockerfile: docker/frontend.Dockerfile
+    image: akhiladev24/churn-frontend:latest
     restart: always
     ports:
       - "8501:8501"

@@ -13,6 +13,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY src ./src
 COPY data ./data
 
+# Most important part — copy trained model files
+COPY artifacts /app/artifacts
+
+# Environment variable for backend to locate artifacts
+ENV ARTIFACTS_PATH=/app/artifacts
+
 # Expose FastAPI port
 EXPOSE 8000
 
