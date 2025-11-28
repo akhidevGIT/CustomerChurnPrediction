@@ -25,8 +25,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
+          pip install -r requirements_api.txt
+          
       - name: Run training pipeline
         run: |
           export PYTHONPATH=$PWD
@@ -48,6 +48,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Cache API pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-api-${{ hashFiles('requirements_api.txt') }}
 
       - name: Download training artifacts
         uses: actions/download-artifact@v4
@@ -80,6 +85,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Cache UI pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-ui-${{ hashFiles('requirements_ui.txt') }}
 
 
       - name: Login to Docker Hub
