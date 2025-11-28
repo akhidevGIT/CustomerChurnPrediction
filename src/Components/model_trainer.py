@@ -34,18 +34,18 @@ class ModelTrainer:
                 }
             params={
                 "logistic_regression":{
-                    #  "C": [0.1, 1, 10],
-                    # "class_weight": [None, "balanced"],
-                    # "solver": ["lbfgs"],
-                    # "max_iter": [1000]
+                     "C": [0.1, 1, 10],
+                    "class_weight": [None, "balanced"],
+                    "solver": ["lbfgs"],
+                    "max_iter": [1000]
                 },
                 "Random Forest":{
-                    "n_estimators": [100, 300],
-                    # "max_depth": [None, 5, 10, 20],
-                    # "min_samples_split": [2, 5, 10],
-                    # "min_samples_leaf": [1, 2, 4],
-                    # "max_features": ["sqrt", "log2"],
-                    # "class_weight": [None, "balanced", "balanced_subsample"]
+                    "n_estimators": [100, 300, 500],
+                    "max_depth": [None, 5, 10, 20],
+                    "min_samples_split": [2, 5, 10],
+                    "min_samples_leaf": [1, 2, 4],
+                    "max_features": ["sqrt", "log2"],
+                    "class_weight": [None, "balanced", "balanced_subsample"]
                     },
                 # "svc":{
                 #     'C': [0.1, 1, 10],
@@ -54,16 +54,15 @@ class ModelTrainer:
 
                 #     },
                 "xgboost":{
-                    "n_estimators": [100, 300],
-                    "learning_rate": [0.01, 0.05]
-                    # "n_estimators": [100, 300, 500],
-                    # "learning_rate": [0.01, 0.05, 0.1],
-                    # "max_depth": [3, 5, 7],
-                    # "subsample": [0.8, 1.0],
-                    # "colsample_bytree": [0.8, 1.0],
-                    # "gamma": [0, 1],
-                    # "min_child_weight": [1, 3, 5],
-                    # "scale_pos_weight": [1, 2, 5]   # for handling imbalance
+                    "learning_rate": [0.01, 0.05],
+                    "n_estimators": [100, 300, 500],
+                    "learning_rate": [0.01, 0.05, 0.1],
+                    "max_depth": [3, 5, 7],
+                    "subsample": [0.8, 1.0],
+                    "colsample_bytree": [0.8, 1.0],
+                    "gamma": [0, 1],
+                    "min_child_weight": [1, 3, 5],
+                    "scale_pos_weight": [1, 2, 5]   # for handling imbalance
                     }
                 }
             logging.info("Model Evaluation Started")
